@@ -17,7 +17,7 @@ select * from shop;
 ----------------------------------------Q1. find the average sale -----------------------------------------------------------
 -------- XX 1. WRONG ANS
 
-select avg(sales)  --475 bcz it divide the value by 5 
+select avg(sales)  --475 bcz it divide the value by 8 instead of 6
 from shop
 
 
@@ -111,7 +111,11 @@ inner join Btable B on 1=1  */
 select *
 from emp 
 where dept_id  NOT IN (select dept_id from dept) --list of dept_id from dept
-
+--OR 
+select distinct e.dept_id 
+from emp e 
+left join dept d on d.dept_id=e.dept_id
+where d.dept_id is null
 -------------------------------------------------------------------------------------------------------------------------------------
 select *
 from emp 
